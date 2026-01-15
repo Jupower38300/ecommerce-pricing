@@ -1,11 +1,12 @@
 import { Panier } from '../src/Models/Panier';
 import { Article, CategorieArticle } from '../src/Models/Article';
+import { CalculateurPrix } from '../src/Services/CalculateurPrix';
 
 describe ('Gestion du panier', () => {
 
     it("Ajout d'un article au panier avec quantité et prix unitaire", () => {
         const panier = new Panier();
-        const article = new Article("Article 1", 100 , CategorieArticle.ELECTRONIQUE);
+        const article = new Article("Article 1", 100 ,CategorieArticle.ELECTRONIQUE, 10);
         panier.ajouterArticle(article);
         expect(panier.getArticles()).toHaveLength(1);
         expect(panier.getArticles()[0].quantite).toBe(10);
@@ -14,7 +15,7 @@ describe ('Gestion du panier', () => {
 
     it("Suppression d'un article du panier avec quantité et prix unitaire", () => {
         const panier = new Panier();
-        const article = new Article("Article 1", 100 ,10, CategorieArticle.ELECTRONIQUE);
+        const article = new Article("Article 1", 100 ,CategorieArticle.ELECTRONIQUE, 10);
         panier.ajouterArticle(article);
 
         panier.supprimerArticle(article, 5);
@@ -26,9 +27,9 @@ describe ('Gestion du panier', () => {
 
     it("Ajouter plus du même article incrémente la quantité", () => {
         const panier = new Panier();
-        const article = new Article("Article 1", 100 ,10, CategorieArticle.ELECTRONIQUE);
+        const article = new Article("Article 1", 100 ,CategorieArticle.ELECTRONIQUE, 10);
         panier.ajouterArticle(article);
-        panier.ajouterArticle(new Article("Article 1", 100 ,5, CategorieArticle.ELECTRONIQUE));
+        panier.ajouterArticle(new Article("Article 1", 100 ,CategorieArticle.ELECTRONIQUE, 10));
         expect(panier.getArticles()).toHaveLength(1);
         expect(panier.getArticles()[0].quantite).toBe(15);
     });
@@ -43,15 +44,16 @@ describe('Calcul du total brut du panier', () => {
 
   it('Retourne le total brut pour un article seul', () => {
     const panier = new Panier();
-    panier.ajouterArticle(new Article("Article 1", 10, 3, CategorieArticle.ELECTRONIQUE));
+    const CalculateurPrix = new CalculateurPrix();
+    panier.ajouterArticle(new Article("Article 1", 10, CategorieArticle.ELECTRONIQUE, 3));
 
-    expect(panier.calculerTotalBrut()).toBe(30);
+    expect(CalculateurPrix.calculerTotalBrut(panier)).toBe(30);
   });
 
   it('Retourne le total brut pour plusieurs articles', () => {
     const panier = new Panier();
-    panier.ajouterArticle(new Article("Article 1", 10, 2, CategorieArticle.ELECTRONIQUE));
-    panier.ajouterArticle(new Article("Article 2", 5, 4, CategorieArticle.ELECTRONIQUE));
+    panier.ajouterArticle(new Article("Article 1", 10, CategorieArticle.ELECTRONIQUE, 2));
+    panier.ajouterArticle(new Article("Article 2", 5, CategorieArticle.ELECTRONIQUE, 4));
 
     expect(panier.calculerTotalBrut()).toBe(40);
   });
@@ -68,7 +70,7 @@ describe('Gestion des articles avec catégories', () => {
 
   it('Ajoute un article avec une catégorie spécifique', () => {
     const panier = new Panier();
-    const article = new Article("Laptop", 1000, 1, CategorieArticle.ELECTRONIQUE);
+    const article = new Article("Laptop", 1000, CategorieArticle.ELECTRONIQUE, 1);
     panier.ajouterArticle(article);
 
     expect(panier.getArticles()).toHaveLength(1);
@@ -77,7 +79,7 @@ describe('Gestion des articles avec catégories', () => {
 
   it('Enlever un article avec une catégorie spécifique', () => {
     const panier = new Panier();
-    const article = new Article("T-Shirt", 20, 2, CategorieArticle.VETEMENTS);
+    const article = new Article("T-Shirt", 20, CategorieArticle.VETEMENTS, 2);
     panier.ajouterArticle(article);
     panier.supprimerArticle(article, 1);
 
@@ -88,8 +90,8 @@ describe('Gestion des articles avec catégories', () => {
 
   it('Ajout de plusieurs articles de différentes catégories', () => {
     const panier = new Panier();
-    const article1 = new Article("Book", 15, 1, CategorieArticle.MEUBLES);
-    const article2 = new Article("Apple", 2, 5, CategorieArticle.ALIMENTATION);
+    const article1 = new Article("Book", 15, CategorieArticle.MEUBLES, 1);
+    const article2 = new Article("Apple", 2, CategorieArticle.ALIMENTATION, 5);
     panier.ajouterArticle(article1);
     panier.ajouterArticle(article2);
 

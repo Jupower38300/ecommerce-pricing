@@ -28,13 +28,4 @@ export class Panier {
   getArticles(): Article[] {
     return this.articles;
   }
-
-  calculerTotalBrut(): number {
-    return this.articles.reduce(
-      (total, article) => total + article.prixUnitaire * article.quantite,
-      0
-    );
-  }
-
-
 }

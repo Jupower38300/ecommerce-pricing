@@ -61,13 +61,13 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectKey=
-            -Dsonar.projectName=ECommercePricing
+            -Dsonar.projectKey=Jupower38300_ecommerce-pricing
+            -Dsonar.projectName=ecommerce-pricing
             -Dsonar.sources=src
             -Dsonar.tests=tests
             -Dsonar.testExecutionReportPaths=build/logs/junit.xml
             -Dsonar.javascript.lcov.reportPaths=build/logs/lcov.info
             -Dsonar.exclusions=node_modules/**,dist/**
+
