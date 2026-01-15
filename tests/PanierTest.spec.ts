@@ -43,15 +43,15 @@ describe('Calcul du total brut du panier', () => {
 
   it('Retourne le total brut pour un article seul', () => {
     const panier = new Panier();
-    panier.ajouterArticle(new Article("Article 1", 10, 3, CategorieArticle.ELECTRONIQUE)); // 3 x 10€
+    panier.ajouterArticle(new Article("Article 1", 10, 3, CategorieArticle.ELECTRONIQUE));
 
     expect(panier.calculerTotalBrut()).toBe(30);
   });
 
   it('Retourne le total brut pour plusieurs articles', () => {
     const panier = new Panier();
-    panier.ajouterArticle(new Article("Article 1", 10, 2, CategorieArticle.ELECTRONIQUE)); // 20€
-    panier.ajouterArticle(new Article("Article 2", 5, 4, CategorieArticle.ELECTRONIQUE);  // 20€
+    panier.ajouterArticle(new Article("Article 1", 10, 2, CategorieArticle.ELECTRONIQUE));
+    panier.ajouterArticle(new Article("Article 2", 5, 4, CategorieArticle.ELECTRONIQUE));
 
     expect(panier.calculerTotalBrut()).toBe(40);
   });
