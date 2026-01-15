@@ -1,5 +1,5 @@
-import { RemiseInterface } from '../Models/Remises';
-import { RemisePourcentage } from '../Models/Remises';
+import { RemiseInterface } from '../src/Remises/RemiseInterface';
+import { RemisePourcentage } from '../src/Remises/RemisePourcentage';
 
 describe('Remise Pourcentage', () => {
 

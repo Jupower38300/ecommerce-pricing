@@ -44,23 +44,25 @@ describe('Calcul du total brut du panier', () => {
 
   it('Retourne le total brut pour un article seul', () => {
     const panier = new Panier();
-    const CalculateurPrix = new CalculateurPrix();
+    const calculateurPrix = new CalculateurPrix();
     panier.ajouterArticle(new Article("Article 1", 10, CategorieArticle.ELECTRONIQUE, 3));
 
-    expect(CalculateurPrix.calculerTotalBrut(panier)).toBe(30);
+    expect(calculateurPrix.calculerTotalBrut(panier)).toBe(30);
   });
 
   it('Retourne le total brut pour plusieurs articles', () => {
     const panier = new Panier();
+    const calculateurPrix = new CalculateurPrix();
     panier.ajouterArticle(new Article("Article 1", 10, CategorieArticle.ELECTRONIQUE, 2));
     panier.ajouterArticle(new Article("Article 2", 5, CategorieArticle.ELECTRONIQUE, 4));
 
-    expect(panier.calculerTotalBrut()).toBe(40);
+    expect(calculateurPrix.calculerTotalBrut(panier)).toBe(40);
   });
 
   it('Retourne 0 si le panier est vide', () => {
     const panier = new Panier();
-    expect(panier.calculerTotalBrut()).toBe(0);
+    const calculateurPrix = new CalculateurPrix();
+    expect(calculateurPrix.calculerTotalBrut(panier)).toBe(0);
   });
 
 });

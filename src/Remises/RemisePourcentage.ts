@@ -1,4 +1,5 @@
 import { Panier } from "../Models/Panier";
+import { CalculateurPrix } from "../Services/CalculateurPrix";
 import { RemiseInterface } from "./RemiseInterface";
 
 export class RemisePourcentage implements RemiseInterface{
@@ -9,7 +10,8 @@ export class RemisePourcentage implements RemiseInterface{
     }
 
     appliquerRemise(panier: Panier): number {
-        const montantTotal = panier.getMontantTotal();
+        const calculateurPrix = new CalculateurPrix();
+        const montantTotal = calculateurPrix.calculerTotalBrut(panier);
         return montantTotal - (montantTotal * this.pourcentage / 100);
     }
 }
