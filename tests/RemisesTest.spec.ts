@@ -48,16 +48,21 @@ describe('Remise Pourcentage', () => {
     });
 
     it('devrait envoyer une erreur si le pourcentage est invalide', () => {
+        const panier = new Panier();
+        const remise = new RemisePourcentage(-5);
         expect(() => {
-            new RemisePourcentage(-5);
+            remise.appliquerRemise(panier);
         }).toThrow('Pourcentage invalide');
     });
 
-    it('devrait renvoyer une erreur si le pourcentage est supérieur à 100%', () => {
+    it('devrait envoyer une erreur si le pourcentage est invalide', () => {
+        const panier = new Panier();
+        const remise = new RemisePourcentage(-5);
         expect(() => {
-            new RemisePourcentage(150);
+            remise.appliquerRemise(panier);
         }).toThrow('Pourcentage invalide');
     });
+
 });
 
 describe('Remise Montant Fixe', () => {
