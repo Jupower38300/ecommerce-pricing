@@ -1,5 +1,5 @@
 import { Panier } from '../src/Models/Panier';
-import { Article } from '../src/Models/Article';
+import { Article, CategorieArticle } from '../src/Models/Article';
 
 describe ('Gestion du panier', () => {
 
@@ -61,4 +61,49 @@ describe('Calcul du total brut du panier', () => {
     expect(panier.calculerTotalBrut()).toBe(0);
   });
 
+});
+
+
+describe('Gestion des articles avec catégories', () => {
+
+  it('Ajoute un article avec une catégorie spécifique', () => {
+    const panier = new Panier();
+    const article = new Article("Laptop", 1000, 1, CategorieArticle.ELECTRONIQUE);
+    panier.ajouterArticle(article);
+
+    expect(panier.getArticles()).toHaveLength(1);
+    expect(panier.getArticles()[0].categorie).toBe(CategorieArticle.ELECTRONIQUE);
+  });
+
+  it('Enlever un article avec une catégorie spécifique', () => {
+    const panier = new Panier();
+    const article = new Article("T-Shirt", 20, 2, CategorieArticle.VETEMENTS);
+    panier.ajouterArticle(article);
+    panier.supprimerArticle(article, 1);
+
+    expect(panier.getArticles()).toHaveLength(1);
+    expect(panier.getArticles()[0].quantite).toBe(1);
+    expect(panier.getArticles()[0].categorie).toBe(CategorieArticle.VETEMENTS);
+  });
+
+  it('Ajout de plusieurs articles de différentes catégories', () => {
+    const panier = new Panier();
+    const article1 = new Article("Book", 15, 1, CategorieArticle.MEUBLES);
+    const article2 = new Article("Apple", 2, 5, CategorieArticle.ALIMENTATION);
+    panier.ajouterArticle(article1);
+    panier.ajouterArticle(article2);
+
+    expect(panier.getArticles()).toHaveLength(2);
+    expect(panier.getArticles()[0].categorie).toBe(CategorieArticle.MEUBLES);
+    expect(panier.getArticles()[1].categorie).toBe(CategorieArticle.ALIMENTATION);
+  });
+
+  it("Lance une errureur lors de l'ajout d'un article avec une catégorie invalide", () => {
+    const panier = new Panier();
+    expect(() => {
+      // @ts-expect-error
+      const article = new Article("Gadget", 50, 1, "Invalide");
+      panier.ajouterArticle(article);
+    }).toThrow();
+  });
 });
