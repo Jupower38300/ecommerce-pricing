@@ -22,14 +22,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: yarn
+        run: npm i
 
       - name: Run Jest and coverage
         run: |
-          yarn jest --coverage \
-            --coverageReporters=lcov \
-            --coverageDirectory=coverage \
-            --testResultsProcessor=jest-junit
+          npm run test
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
