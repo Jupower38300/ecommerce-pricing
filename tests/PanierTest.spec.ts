@@ -5,7 +5,7 @@ describe ('Gestion du panier', () => {
 
     it("Ajout d'un article au panier avec quantité et prix unitaire", () => {
         const panier = new Panier();
-        const article = new Article("Article 1", 100 ,10, CategorieArticle.ELECTRONIQUE);
+        const article = new Article("Article 1", 100 , CategorieArticle.ELECTRONIQUE);
         panier.ajouterArticle(article);
         expect(panier.getArticles()).toHaveLength(1);
         expect(panier.getArticles()[0].quantite).toBe(10);
