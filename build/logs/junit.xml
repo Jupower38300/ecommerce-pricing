@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="22" failures="1" errors="0" time="0.88">
-  <testsuite name="Remise Pourcentage" errors="0" failures="1" skipped="0" timestamp="2026-01-15T10:49:07" time="0.356" tests="11">
+<testsuites name="jest tests" tests="22" failures="2" errors="0" time="0.874">
+  <testsuite name="Remise Pourcentage" errors="0" failures="2" skipped="0" timestamp="2026-01-15T11:01:19" time="0.351" tests="11">
     <testcase classname="Remise Pourcentage devrait appliquer une remise de 10%" name="Remise Pourcentage devrait appliquer une remise de 10%" time="0.003">
     </testcase>
-    <testcase classname="Remise Pourcentage devrait appliquer une remise de 25%" name="Remise Pourcentage devrait appliquer une remise de 25%" time="0.001">
+    <testcase classname="Remise Pourcentage devrait appliquer une remise de 25%" name="Remise Pourcentage devrait appliquer une remise de 25%" time="0">
     </testcase>
-    <testcase classname="Remise Pourcentage devrait ne pas appliquer de remise si le pourcentage est 0%" name="Remise Pourcentage devrait ne pas appliquer de remise si le pourcentage est 0%" time="0.001">
+    <testcase classname="Remise Pourcentage devrait ne pas appliquer de remise si le pourcentage est 0%" name="Remise Pourcentage devrait ne pas appliquer de remise si le pourcentage est 0%" time="0">
     </testcase>
     <testcase classname="Remise Pourcentage devrait gérer une remise de 100%" name="Remise Pourcentage devrait gérer une remise de 100%" time="0.001">
     </testcase>
@@ -30,27 +30,44 @@
     at runTestInternal (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-runner/build/index.js:275:16)
     at runTest (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-runner/build/index.js:343:7)</failure>
     </testcase>
-    <testcase classname="Remise Pourcentage devrait renvoyer une erreur si le pourcentage est supérieur à 100%" name="Remise Pourcentage devrait renvoyer une erreur si le pourcentage est supérieur à 100%" time="0.004">
+    <testcase classname="Remise Pourcentage devrait envoyer une erreur si le pourcentage est invalide" name="Remise Pourcentage devrait envoyer une erreur si le pourcentage est invalide" time="0.001">
+      <failure>Error: Pourcentage invalide
+    at new RemisePourcentage (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/src/Remises/RemisePourcentage.ts:8:19)
+    at Object.&lt;anonymous&gt; (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/tests/RemisesTest.spec.ts:60:24)
+    at Promise.finally.completed (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:1557:28)
+    at new Promise (&lt;anonymous&gt;)
+    at callAsyncCircusFn (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:1497:10)
+    at _callCircusTest (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:1007:40)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at _runTest (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:947:3)
+    at /home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:849:7
+    at _runTestsForDescribeBlock (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:862:11)
+    at _runTestsForDescribeBlock (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:857:11)
+    at run (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:761:3)
+    at runAndTransformResultsToJestFormat (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/jestAdapterInit.js:1918:21)
+    at jestAdapter (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-circus/build/runner.js:101:19)
+    at runTestInternal (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-runner/build/index.js:275:16)
+    at runTest (/home/jupower/Developpement/Evaluation Analyse de Code/ecommerce-pricing/node_modules/jest-runner/build/index.js:343:7)</failure>
     </testcase>
-    <testcase classname="Remise Montant Fixe applique la remise si le panier dépasse le seuil" name="Remise Montant Fixe applique la remise si le panier dépasse le seuil" time="0.001">
+    <testcase classname="Remise Montant Fixe applique la remise si le panier dépasse le seuil" name="Remise Montant Fixe applique la remise si le panier dépasse le seuil" time="0">
     </testcase>
     <testcase classname="Remise Montant Fixe ne s’applique pas si le panier est en dessous du seuil" name="Remise Montant Fixe ne s’applique pas si le panier est en dessous du seuil" time="0.001">
     </testcase>
-    <testcase classname="Remise Montant Fixe lance une erreur si le montant est invalide" name="Remise Montant Fixe lance une erreur si le montant est invalide" time="0.002">
+    <testcase classname="Remise Montant Fixe lance une erreur si le montant est invalide" name="Remise Montant Fixe lance une erreur si le montant est invalide" time="0.005">
     </testcase>
     <testcase classname="Remise Montant Fixe lance une erreur si le seuil est invalide" name="Remise Montant Fixe lance une erreur si le seuil est invalide" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="Gestion du panier" errors="0" failures="0" skipped="0" timestamp="2026-01-15T10:49:07" time="0.065" tests="11">
+  <testsuite name="Gestion du panier" errors="0" failures="0" skipped="0" timestamp="2026-01-15T11:01:19" time="0.072" tests="11">
     <testcase classname="Gestion du panier Ajout d&apos;un article au panier avec quantité et prix unitaire" name="Gestion du panier Ajout d&apos;un article au panier avec quantité et prix unitaire" time="0.002">
     </testcase>
     <testcase classname="Gestion du panier Suppression d&apos;un article du panier avec quantité et prix unitaire" name="Gestion du panier Suppression d&apos;un article du panier avec quantité et prix unitaire" time="0.001">
     </testcase>
-    <testcase classname="Gestion du panier Ajouter plus du même article incrémente la quantité" name="Gestion du panier Ajouter plus du même article incrémente la quantité" time="0">
+    <testcase classname="Gestion du panier Ajouter plus du même article incrémente la quantité" name="Gestion du panier Ajouter plus du même article incrémente la quantité" time="0.001">
     </testcase>
-    <testcase classname="Gestion du panier Retourne rien si panier vide lors de la suppression" name="Gestion du panier Retourne rien si panier vide lors de la suppression" time="0">
+    <testcase classname="Gestion du panier Retourne rien si panier vide lors de la suppression" name="Gestion du panier Retourne rien si panier vide lors de la suppression" time="0.001">
     </testcase>
-    <testcase classname="Calcul du total brut du panier Retourne le total brut pour un article seul" name="Calcul du total brut du panier Retourne le total brut pour un article seul" time="0.001">
+    <testcase classname="Calcul du total brut du panier Retourne le total brut pour un article seul" name="Calcul du total brut du panier Retourne le total brut pour un article seul" time="0">
     </testcase>
     <testcase classname="Calcul du total brut du panier Retourne le total brut pour plusieurs articles" name="Calcul du total brut du panier Retourne le total brut pour plusieurs articles" time="0.001">
     </testcase>
@@ -58,7 +75,7 @@
     </testcase>
     <testcase classname="Gestion des articles avec catégories Ajoute un article avec une catégorie spécifique" name="Gestion des articles avec catégories Ajoute un article avec une catégorie spécifique" time="0.001">
     </testcase>
-    <testcase classname="Gestion des articles avec catégories Enlever un article avec une catégorie spécifique" name="Gestion des articles avec catégories Enlever un article avec une catégorie spécifique" time="0.001">
+    <testcase classname="Gestion des articles avec catégories Enlever un article avec une catégorie spécifique" name="Gestion des articles avec catégories Enlever un article avec une catégorie spécifique" time="0.002">
     </testcase>
     <testcase classname="Gestion des articles avec catégories Ajout de plusieurs articles de différentes catégories" name="Gestion des articles avec catégories Ajout de plusieurs articles de différentes catégories" time="0.001">
     </testcase>
