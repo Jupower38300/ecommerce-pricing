@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="3" failures="0" errors="0" time="0.796">
+  <testsuite name="Gestion du panier" errors="0" failures="0" skipped="0" timestamp="2026-01-15T09:25:32" time="0.357" tests="3">
+    <testcase classname="Gestion du panier Ajout d&apos;un article au panier avec quantité et prix unitaire" name="Gestion du panier Ajout d&apos;un article au panier avec quantité et prix unitaire" time="0.004">
+    </testcase>
+    <testcase classname="Gestion du panier Suppression d&apos;un article du panier avec quantité et prix unitaire" name="Gestion du panier Suppression d&apos;un article du panier avec quantité et prix unitaire" time="0.001">
+    </testcase>
+    <testcase classname="Gestion du panier Ajouter plus du même article incrémente la quantité" name="Gestion du panier Ajouter plus du même article incrémente la quantité" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>
