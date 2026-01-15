@@ -1,40 +1,41 @@
+import { Panier } from '../src/Models/Panier';
 import { RemiseInterface } from '../src/Remises/RemiseInterface';
 import { RemisePourcentage } from '../src/Remises/RemisePourcentage';
 
 describe('Remise Pourcentage', () => {
 
     it('devrait appliquer une remise de 10%', () => {
+        const panier = new Panier();
         const remise: RemiseInterface = new RemisePourcentage(10);
-        const montantInitial = 200;
-        const montantApresRemise = remise.appliquerRemise(montantInitial);
+        const montantApresRemise = remise.appliquerRemise(panier);
         expect(montantApresRemise).toBe(180);
     });
 
     it('devrait appliquer une remise de 25%', () => {
+        const panier = new Panier();
         const remise: RemiseInterface = new RemisePourcentage(25);
-        const montantInitial = 400;
-        const montantApresRemise = remise.appliquerRemise(montantInitial);
+        const montantApresRemise = remise.appliquerRemise(panier);
         expect(montantApresRemise).toBe(300);
     });
 
     it('devrait ne pas appliquer de remise si le pourcentage est 0%', () => {
+        const panier = new Panier();
         const remise: RemiseInterface = new RemisePourcentage(0);
-        const montantInitial = 150;
-        const montantApresRemise = remise.appliquerRemise(montantInitial);
+        const montantApresRemise = remise.appliquerRemise(panier);
         expect(montantApresRemise).toBe(150);
     });
 
     it('devrait gérer une remise de 100%', () => {
+        const panier = new Panier();
         const remise: RemiseInterface = new RemisePourcentage(100);
-        const montantInitial = 80;
-        const montantApresRemise = remise.appliquerRemise(montantInitial);
+        const montantApresRemise = remise.appliquerRemise(panier);
         expect(montantApresRemise).toBe(0);
     });
 
     it('devrait gérer une remise de 0%', () => {
+        const panier = new Panier();
         const remise: RemiseInterface = new RemisePourcentage(0);
-        const montantInitial = 0;
-        const montantApresRemise = remise.appliquerRemise(montantInitial);
+        const montantApresRemise = remise.appliquerRemise(panier);
         expect(montantApresRemise).toBe(0);
     });
 
