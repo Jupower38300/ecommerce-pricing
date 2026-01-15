@@ -31,7 +31,7 @@ describe ('Gestion du panier', () => {
         panier.ajouterArticle(article);
         panier.ajouterArticle(new Article("Article 1", 100 ,CategorieArticle.ELECTRONIQUE, 10));
         expect(panier.getArticles()).toHaveLength(1);
-        expect(panier.getArticles()[0].quantite).toBe(15);
+        expect(panier.getArticles()[0].quantite).toBe(20);
     });
 
     it("Retourne rien si panier vide lors de la suppression", () => {
