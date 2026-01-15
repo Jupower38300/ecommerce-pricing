@@ -1,4 +1,6 @@
 import { Panier } from '../src/Models/Panier';
+import { Article, CategorieArticle } from '../src/Models/Article';
+import { RemiseMontantFixe } from '../src/Remises/RemiseMontantFixe';
 import { RemiseInterface } from '../src/Remises/RemiseInterface';
 import { RemisePourcentage } from '../src/Remises/RemisePourcentage';
 
@@ -58,3 +60,30 @@ describe('Remise Pourcentage', () => {
     });
 });
 
+describe('Remise Montant Fixe', () => {
+
+  it('applique la remise si le panier dépasse le seuil', () => {
+    const panier = new Panier();
+    panier.ajouterArticle(new Article('Article 1', 50, CategorieArticle.ELECTRONIQUE, 2));
+
+    const remise = new RemiseMontantFixe(20, 80);
+    expect(remise.appliquerRemise(panier)).toBe(20);
+  });
+
+  it('ne s’applique pas si le panier est en dessous du seuil', () => {
+    const panier = new Panier();
+    panier.ajouterArticle(new Article('Article 1', 30,CategorieArticle.ELECTRONIQUE, 1));
+
+    const remise = new RemiseMontantFixe(10, 50);
+    expect(remise.appliquerRemise(panier)).toBe(0);
+  });
+
+  it('lance une erreur si le montant est invalide', () => {
+    expect(() => new RemiseMontantFixe(0, 50)).toThrow();
+  });
+
+  it('lance une erreur si le seuil est invalide', () => {
+    expect(() => new RemiseMontantFixe(10, 0)).toThrow();
+  });
+
+});
