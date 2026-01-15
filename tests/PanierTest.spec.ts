@@ -98,7 +98,7 @@ describe('Gestion des articles avec catégories', () => {
     expect(panier.getArticles()[1].categorie).toBe(CategorieArticle.ALIMENTATION);
   });
 
-  it("Lance une errureur lors de l'ajout d'un article avec une catégorie invalide", () => {
+  it("Lance une erreur lors de l'ajout d'un article avec une catégorie invalide", () => {
     const panier = new Panier();
     expect(() => {
       // @ts-expect-error

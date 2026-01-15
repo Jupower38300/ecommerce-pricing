@@ -6,6 +6,7 @@ export class Panier {
 
   ajouterArticle(article: Article): void {
     const existant = this.articles.find(a => a.nom === article.nom);
+    
     if (existant) {
       existant.quantite += article.quantite;
     } else {
@@ -34,4 +35,6 @@ export class Panier {
       0
     );
   }
+
+
 }

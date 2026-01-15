@@ -7,10 +7,18 @@ export enum CategorieArticle {
 
 
 export class Article {
-  constructor(
-    public readonly nom: string,
-    public readonly prixUnitaire: number,
-    public quantite: number = 1,
-    public readonly categorie?: CategorieArticle,
-  ) {}
+    public readonly nom: string
+    public readonly prixUnitaire: number
+    public quantite: number = 1
+    public readonly categorie: CategorieArticle
+  constructor(nom: string, prixUnitaire: number, quantite: number = 1, categorie: CategorieArticle)
+  {
+    if (!Object.values(CategorieArticle).includes(categorie)) {
+      throw new Error(`Catégorie invalide : ${categorie}`);
+    }
+    this.nom = nom;
+    this.prixUnitaire = prixUnitaire;
+    this.quantite = quantite;
+    this.categorie = categorie;
+  }
 }
